@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nuestro Amor</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #000000, #000066);
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    header {
+      padding: 20px;
+      background-color: #000033;
+    }
+    header h1 {
+      margin: 0;
+      color: #00BFFF;
+    }
+    .mensaje {
+      margin: 20px;
+      font-size: 1.2em;
+      color: #87CEFA;
+    }
+    .corazones {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .corazon {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      transform: rotate(45deg);
+      animation: flotar 5s linear infinite;
+    }
+    .corazon::before,
+    .corazon::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+    }
+    .corazon::before {
+      top: -10px;
+      left: 0;
+    }
+    .corazon::after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes flotar {
+      0% { transform: translateY(100vh) rotate(45deg); opacity: 1; }
+      100% { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
+    }
+
+    .mensaje-flotante {
+      position: absolute;
+      font-weight: bold;
+      animation: flotarTexto 6s linear infinite;
+      white-space: nowrap;
+    }
+    @keyframes flotarTexto {
+      0% { transform: translateY(100vh); opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      z-index: 2;
+      position: relative;
+    }
+    .foto {
+      margin: 10px;
+      text-align: center;
+    }
+    .foto img {
+      display: block;
+      margin: 0 auto;
+      border: 2px solid #00BFFF;
+      border-radius: 10px;
+      width: 100px;
+      height: 150px;
+      object-fit: cover;
+    }
+    .foto p {
+      margin-top: 5px;
+      font-size: 0.9em;
+      color: #FFD700;
+    }
+    @media (min-width: 600px) {
+      .foto img {
+        width: 150px;
+        height: 200px;
+      }
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nuestro Amor</h1>
+  </header>
+  <p class="mensaje">Juntos en cada instante, en cada sonrisa que ilumina el alma y en cada abrazo que detiene el tiempo. Este amor es solo nuestro, eterno e infinito. ❤️✨ Te amo más de lo que las palabras pueden decir... para siempre y más allá. 💖</p>
+
+  <div class="corazones" id="corazones"></div>
+
+  <div class="galeria">
+    <div class="foto">
+      <img src="C:\Users\krems\Downloads\wep\img\foto1.jpg" alt="Foto 1">
+      <p>Un momento inolvidable con tigo ❤☺</p>
+    </div>
+    <div class="foto">
+      <img src="C:\Users\krems\Downloads\wep\img\foto2.jpg" alt="Foto 2">
+      <p>Tu sonrisa ilumina todo gracias por ser parte de mi vida te amo por siempre ❤☺</p>
+    </div>
+    <div class="foto">
+      <img src="C:\Users\krems\Downloads\wep\img\foto3.jpg" alt="Foto 3">
+      <p>Abrazos que llenan el alma y hace feliz ami corazon❤☺</p>
+    </div>
+    <div class="foto">
+      <img src="C:\Users\krems\Downloads\wep\img\foto4.jpg" alt="Foto 4">
+      <p>Te amo y te amare toda la vida guapo❤☺</p>
+    </div>
+    <div class="foto">
+      <img src="C:\Users\krems\Downloads\wep\img\foto5.jpg" alt="Foto 5">
+      <p>Un día especial juntos,amo cada momento atu lado❤☺</p>
+    </div>
+    <div class="foto">
+      <img src="C:\Users\krems\Downloads\wep\img\foto6.jpg" alt="Foto 6">
+      <p>Miradas que enamoran y yo me enamoro de ti cada momento❤☺</p>
+    </div>
+    <div class="foto">
+      <img src="C:\Users\krems\Downloads\wep\img\foto7.jpg" alt="Foto 7">
+      <p>Risas que sanan te amooooo❤☺</p>
+    </div>
+    <div class="foto">
+      <img src="C:\Users\krems\Downloads\wep\img\foto8.jpg" alt="Foto 8">
+      <p>Eternamente por siempre, no lo olvides❤☺</p>
+    </div>
+    <div class="foto">
+      <img src="C:\Users\krems\Downloads\wep\img\foto9.jpg" alt="Foto 9">
+      <p>Siempre a tu lado❤☺</p>
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <script>
+    function crearCorazon() {
+      const corazon = document.createElement('div');
+      corazon.classList.add('corazon');
+      corazon.style.left = Math.random() * 100 + 'vw';
+      corazon.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      document.getElementById('corazones').appendChild(corazon);
+      setTimeout(() => corazon.remove(), 5000);
+    }
+
+    function crearMensaje() {
+      const mensaje = document.createElement('div');
+      mensaje.classList.add('mensaje-flotante');
+      mensaje.textContent = 'Te amo Nills';
+      mensaje.style.left = Math.random() * 100 + 'vw';
+      mensaje.style.animationDuration = (Math.random() * 3 + 3) + 's';
+
+      const colores = ['#FF69B4', '#FFD700', '#00FFFF', '#FF4500', '#ADFF2F', '#FF1493'];
+      const tamanos = ['1em', '1.2em', '1.5em', '2em'];
+      mensaje.style.color = colores[Math.floor(Math.random() * colores.length)];
+      mensaje.style.fontSize = tamanos[Math.floor(Math.random() * tamanos.length)];
+
+      document.getElementById('corazones').appendChild(mensaje);
+      setTimeout(() => mensaje.remove(), 6000);
+    }
+
+    setInterval(crearCorazon, 300);
+    setInterval(crearMensaje, 2000);
+  </script>
+</body>
+</html>
